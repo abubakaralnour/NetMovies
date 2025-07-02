@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 export default function First() {
   return (
@@ -44,7 +44,7 @@ export default function First() {
         </h1>
 
         <p className="mt-4 text-sm sm:text-base md:text-lg max-w-xl">
-          Starts at SAR 35. Cancel anytime.
+          Starts at SAR 35 Cancel anytime.
         </p>
 
         <p className="mt-2 text-sm sm:text-base md:text-lg max-w-xl">

@@ -27,30 +27,26 @@ const Treands = () => {
         Trending Movies
       </h1>
 
-      <div className="flex flex-wrap justify-center gap-4">
-        {movies.length > 0 ? (
-          movies.map((movie) => (
-            <div
-              key={movie.id}
-              className="w-[45vw] sm:w-[30vw] md:w-[18vw] lg:w-[14vw] xl:w-[12vw] max-w-xs"
-            >
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
-                width={500}
-                height={750}
-                className="rounded-xl object-cover"
-                unoptimized
-              />
-              <h4 className="mt-2 text-white text-center text-sm sm:text-base truncate">
-                {movie.title?.replace(/"/g, "&quot;")}
-              </h4>
-            </div>
-          ))
-        ) : (
-          <p className="text-white">Error fetching movies</p>
-        )}
-      </div>
+      <SwiperSlide key={movie.id}>
+  <div
+    onClick={() => setSelectedMovie(movie)}
+    className="cursor-pointer transition-transform duration-300 transform hover:scale-105 w-1/2 sm:w-36 md:w-40"
+  >
+    <div className="relative w-full aspect-[3/4] rounded-md overflow-hidden">
+      <Image
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
+        fill
+        className="object-cover"
+        unoptimized
+      />
+    </div>
+    <h4 className="text-sm mt-2 text-center">
+      {movie.title?.replace(/"/g, "&quot;")}
+    </h4>
+  </div>
+</SwiperSlide>
+
     </div>
   );
 };

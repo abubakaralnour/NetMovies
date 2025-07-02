@@ -114,7 +114,7 @@ export default function TrandMobile() {
             {selectedMovie.overview}
           </p>
          <Link href="/component/payment"> <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md">
-             Get Started &rarr;
+             Get Started 
           </button></Link>
         </div>
       </div>

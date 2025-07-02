@@ -58,7 +58,7 @@ export default function First() {
             className="px-4 py-3 rounded-md border border-gray-400 bg-black bg-opacity-40 text-white placeholder-gray-300"
           />
           <button className="bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition font-semibold">
-            Get Started 
+            Get Started
           </button>
         </div>
       </div>

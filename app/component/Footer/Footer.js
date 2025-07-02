@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 
 const Footer = () => {
@@ -9,16 +9,16 @@ const Footer = () => {
           {[...Array(4)].map((_, index) => (
             <div key={index}>
               <div className="text-xs font-medium text-gray-400 uppercase mb-5">
-                {['Getting Started', 'Documentation', 'Community', 'Resources'][index] || 'Section'}
+                {["Getting Started", "Documentation", "Community", "Resources"][index] || "Section"}
               </div>
               {[
-                'Installation',
-                'Release Notes',
-                'Upgrade Guide',
-                'Using with Preprocessors',
-                'Optimizing for Production',
-                'Browser Support',
-                'IntelliSense',
+                "Installation",
+                "Release Notes",
+                "Upgrade Guide",
+                "Using with Preprocessors",
+                "Optimizing for Production",
+                "Browser Support",
+                "IntelliSense",
               ].map((item, i) => (
                 <a
                   key={i}
@@ -38,7 +38,7 @@ const Footer = () => {
           <p className="text-sm text-gray-400">© {new Date().getFullYear()}. All Rights Reserved.</p>
 
           <div className="flex mt-3 -mx-2 sm:mt-0">
-            {['Reddit', 'Facebook', 'Github'].map((platform, i) => (
+            {["Reddit", "Facebook", "Github"].map((platform, i) => (
               <a
                 key={i}
                 href="#"

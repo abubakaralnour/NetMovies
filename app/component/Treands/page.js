@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -23,7 +23,10 @@ const Treands = () => {
 
   return (
     <div className="p-4 bg-black min-h-screen">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center text-red-600 mb-10">
+       <h1 className="text-4xl font-bold text-[#e50914]">
+            <Link href="/"> NETMOVIES</Link>
+          </h1>
+      <h1 className="text-2xl sm:text-4xl font-bold text-center text-red-300 mb-10">
         Trending Movies
       </h1>
 

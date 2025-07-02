@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import Link from 'next/link';
+import { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import Link from "next/link";
 
 export default function TrandMobile() {
   const [Trend, setTrend] = useState([]);
@@ -17,12 +17,12 @@ export default function TrandMobile() {
     async function getTrend() {
       try {
         const res = await fetch(
-          'https://api.themoviedb.org/3/movie/popular?api_key=addee6445d15b77ab3230f8fafe13edd'
+          "https://api.themoviedb.org/3/movie/popular?api_key=addee6445d15b77ab3230f8fafe13edd"
         );
         const data = await res.json();
         setTrend(data.results);
       } catch (error) {
-        console.error("can't fetch data");
+        console.error("cant fetch data");
       }
     }
     getTrend();
@@ -36,10 +36,10 @@ export default function TrandMobile() {
       }
     };
     if (selectedMovie) {
-      document.addEventListener('mousedown', handler);
+      document.addEventListener("mousedown", handler);
     }
     return () => {
-      document.removeEventListener('mousedown', handler);
+      document.removeEventListener("mousedown", handler);
     };
   }, [selectedMovie]);
 
@@ -65,7 +65,7 @@ export default function TrandMobile() {
             <div
               onClick={() => setSelectedMovie(movie)}
               className="cursor-pointer transition-transform duration-300 transform hover:scale-105"
-              style={{ width: '140px' }}
+              style={{ width: "140px" }}
             >
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

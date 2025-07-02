@@ -95,7 +95,7 @@ const Trand = () => {
         const data = await res.json();
         setTrend(data.results);
       } catch (error) {
-        console.error("can't fetch data");
+        console.error("can t fetch data");
       }
     }
 

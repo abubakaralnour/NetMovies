@@ -27,26 +27,26 @@ const Treands = () => {
         Trending Movies
       </h1>
 
-      <SwiperSlide key={movie.id}>
-  <div
-    onClick={() => setSelectedMovie(movie)}
-    className="cursor-pointer transition-transform duration-300 transform hover:scale-105 w-1/2 sm:w-36 md:w-40"
-  >
-    <div className="relative w-full aspect-[3/4] rounded-md overflow-hidden">
-      <Image
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
-        fill
-        className="object-cover"
-        unoptimized
-      />
-    </div>
-    <h4 className="text-sm mt-2 text-center">
-      {movie.title?.replace(/"/g, "&quot;")}
-    </h4>
-  </div>
-</SwiperSlide>
-
+      <div className="flex flex-wrap ">
+        {movies.map((movie) => (
+          <div
+            key={movie.id}
+            className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-2 flex flex-col items-center"
+          >
+            <Image
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
+              width={160} // Good size for mobile
+              height={240} // Maintain 2:3 aspect ratio
+              className="rounded-md object-cover"
+              unoptimized
+            />
+            <h4 className="text-sm mt-2 text-center text-white">
+              {movie.title?.replace(/"/g, "&quot;")}
+            </h4>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

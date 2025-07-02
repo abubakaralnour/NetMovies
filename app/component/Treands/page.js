@@ -22,7 +22,7 @@ const Treands = () => {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div style={{ padding: "2rem",backgroundColor:"black" }}>
       <h1 className="text-3xl sm:text-4xl font-bold text-center text-red-600 mb-10">
         Trending Movies
       </h1>

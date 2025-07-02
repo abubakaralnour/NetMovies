@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect, useRef } from "react";
 
 const SelectedCard = () => {
@@ -62,7 +62,7 @@ const SelectedCard = () => {
               </div>
               <div className="otherSide-child">
                 <p className="Instant">INSTANT MOOD BOOSTERS</p>
-                <h2 className="Here">HERE'S 20% OFF</h2>
+                <h2 className="Here">HERE"S 20% OFF</h2>
                 <p className="your">your first order of farm-fresh flowers.</p>
                 <button>Get 20% Off</button>
                 <p className="Decline" onClick={() => setIsopen(false)}>

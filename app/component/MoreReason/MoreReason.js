@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
 const features = [
   {
-    title: 'Enjoy on your TV',
-    text: 'Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.',
-    icon: 'https://img.icons8.com/?size=100&id=ZJ4VRrHw2maQ&format=png&color=000000',
+    title: "Enjoy on your TV",
+    text: "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.",
+    icon: "https://img.icons8.com/?size=100&id=ZJ4VRrHw2maQ&format=png&color=000000",
   },
   {
-    title: 'Download your shows to watch offline',
-    text: 'Save your favorites easily and always have something to watch.',
-    icon: 'https://img.icons8.com/?size=100&id=108642&format=png&color=000000',
+    title: "Download your shows to watch offline",
+    text: "Save your favorites easily and always have something to watch.",
+    icon: "https://img.icons8.com/?size=100&id=108642&format=png&color=000000",
   },
   {
-    title: 'Watch everywhere',
-    text: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.',
-    icon: 'https://img.icons8.com/?size=100&id=17326&format=png&color=000000',
+    title: "Watch everywhere",
+    text: "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.",
+    icon: "https://img.icons8.com/?size=100&id=17326&format=png&color=000000",
   },
   {
-    title: 'Create profiles for kids',
-    text: 'Send kids on adventures with their favorite characters in a space made just for them — free with your membership.',
-    icon: 'https://img.icons8.com/?size=100&id=4hXMm3zO1vu5&format=png&color=000000',
+    title: "Create profiles for kids",
+    text: "Send kids on adventures with their favorite characters in a space made just for them — free with your membership.",
+    icon: "https://img.icons8.com/?size=100&id=4hXMm3zO1vu5&format=png&color=000000",
   },
 ];
 

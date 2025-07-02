@@ -1,6 +1,6 @@
 "use client";
 
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState } from "react";
 
  const Treands = () => {
   const [movies, setMovies] = useState([]);
@@ -20,15 +20,15 @@ setMovies(data.results)
   return (
     <div style={{ padding: "2rem" }}>
  
-      <h1 className='text-3xl sm:text-4xl font-bold text-center text-red-600 mb-10'> Trending Movies</h1>
-      <div  className='flex flex-wrap gap-4 '>
+      <h1 className="text-3xl sm:text-4xl font-bold text-center text-red-600 mb-10"> Trending Movies</h1>
+      <div  className="flex flex-wrap gap-4 ">
         {movies? movies.map((movie) => (
           <div key={movie.id} style={{ width: "200px" }}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
              
-              className='w-full rounded-xl'
+              className="w-full rounded-xl"
             />
             <h4>{movie.title}</h4>
           </div>

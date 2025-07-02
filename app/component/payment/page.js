@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 
 export default function NetflixPaymentOptions() {
-  return (<div className='bg-white'>
-<div className='flex justify-between p-4 '>
+  return (<div className="bg-white">
+<div className="flex justify-between p-4 ">
   <div className="w-full text-left">
     <h1 className="text-4xl font-bold text-[#e50914]"><Link href="/"> NETMOVIES</Link> </h1>
   </div>
@@ -20,7 +20,7 @@ export default function NetflixPaymentOptions() {
 
       {/* Lock Icon */}
       <div className="text-center mb-4">
-        <div className="text-red-500 text-3xl"><img  alt='as' src='https://img.icons8.com/?size=100&id=znpDNZWhQe6p&format=png&color=000000' className='h-16'/></div>
+        <div className="text-red-500 text-3xl"><img  alt="as" src="https://img.icons8.com/?size=100&id=znpDNZWhQe6p&format=png&color=000000" className="h-16"/></div>
       </div>
 
       {/* Step Header */}
@@ -43,7 +43,7 @@ export default function NetflixPaymentOptions() {
             <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard" className="h-6" />
             <img src="https://img.icons8.com/color/48/amex.png" alt="amex" className="h-6" />
           </span>
-          <img alt='asd' src='https://img.icons8.com/?size=100&id=7849&format=png&color=000000 'className='h-8'/>
+          <img alt="asd" src="https://img.icons8.com/?size=100&id=7849&format=png&color=000000 "className="h-8"/>
    
         </button>
     </Link>
@@ -54,14 +54,14 @@ export default function NetflixPaymentOptions() {
             <img src="https://img.icons8.com/color/48/mobily.png" alt="mobily" className="h-6" />
             <img src="https://img.icons8.com/color/48/zain.png" alt="zain" className="h-6" /> */}
           </span>
-                    <img alt='asd' src='https://img.icons8.com/?size=100&id=7849&format=png&color=000000 'className='h-8'/>
+                    <img alt="asd" src="https://img.icons8.com/?size=100&id=7849&format=png&color=000000 "className="h-8"/>
 
         </button>
 </Link><Link href="/component/lastpayment">  
         <button className="mt-2  flex justify-between items-center w-full border rounded px-4 py-3 hover:bg-amber-200 transition">
           <span>Gift Code</span>
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-5" />
-                 <img alt='asd' src='https://img.icons8.com/?size=100&id=7849&format=png&color=000000 'className='h-8'/>
+                 <img alt="asd" src="https://img.icons8.com/?size=100&id=7849&format=png&color=000000 "className="h-8"/>
 
         </button>
         </Link>

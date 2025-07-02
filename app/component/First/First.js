@@ -1,14 +1,19 @@
 "use client";
 
+import Image from "next/image";
+
 export default function First() {
   return (
     <div className="relative w-full text-white overflow-hidden pb-16 sm:pb-20">
       {/* Background image */}
       <div className="absolute inset-0 h-full max-h-[800px]">
-        <img
+        <Image
           src="https://i.imgur.com/ECKbXX9.jpeg"
           alt="background"
-          className="w-full h-full object-cover"
+          layout="fill"
+          objectFit="cover"
+          className="z-0"
+          unoptimized
         />
         <div className="absolute inset-0 bg-black opacity-60" />
       </div>
@@ -22,16 +27,20 @@ export default function First() {
           </button>
 
           <div className="flex items-center gap-1 border border-gray-500 px-2 py-1 rounded">
-            <img
+            <Image
               src="https://img.icons8.com/?size=30&id=12455&format=png&color=faf7f7"
               alt="flag"
-              className="w-5 h-5"
+              width={20}
+              height={20}
+              unoptimized
             />
             <span className="text-sm sm:text-base">English</span>
-            <img
+            <Image
               src="https://img.icons8.com/?size=30&id=85018&format=png&color=faf7f7"
               alt="arrow"
-              className="w-3 h-3"
+              width={10}
+              height={10}
+              unoptimized
             />
           </div>
         </div>
@@ -63,5 +72,5 @@ export default function First() {
         </div>
       </div>
     </div>
-  )
+  );
 }

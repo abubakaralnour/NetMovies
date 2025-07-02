@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
 
-// Helper to escape quotes
-const escapeQuotes = (str) => str?.replace(/"/g, '\u201C');
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 // Overlay Modal Component
 const OverlayModal = ({ onClose, Trend, selectmove }) => {
@@ -13,9 +12,7 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
   useEffect(() => {
     if (!selectmove || !Trend.length) return;
     const found = Trend.find((item) => item.id === selectmove.id);
-    if (found) {
-      setMatched(found);
-    }
+    if (found) setMatched(found);
   }, [selectmove, Trend]);
 
   useEffect(() => {
@@ -54,12 +51,17 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
           </button>
           {matched && (
             <div>
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w500${matched.poster_path}`}
                 alt={matched.title}
+                width={500}
+                height={300}
                 className="w-full object-cover h-64 sm:h-72 md:h-80"
+                unoptimized
               />
-              <h4 className="text-xl font-bold mt-4 p-2">{escapeQuotes(matched.title)}</h4>
+              <h4 className="text-xl font-bold mt-4 p-2">
+                {matched.title?.replace(/"/g, "&quot;")}
+              </h4>
               <p className="text-sm mt-2 p-2">{matched.overview}</p>
               <div className="text-center">
                 <Link href="/component/payment">
@@ -115,12 +117,17 @@ const Trand = () => {
               setShowOverlay(true);
             }}
           >
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
+              width={300}
+              height={400}
               className="w-full h-64 object-cover rounded-lg"
+              unoptimized
             />
-            <h4 className="text-white mt-2 text-center">{escapeQuotes(movie.title)}</h4>
+            <h4 className="text-white mt-2 text-center">
+              {movie.title?.replace(/"/g, "&quot;")}
+            </h4>
           </div>
         ))}
       </div>

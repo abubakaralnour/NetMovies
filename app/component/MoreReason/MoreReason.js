@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const features = [
   {
     title: "Enjoy on your TV",
@@ -33,7 +35,14 @@ export default function MoreReason() {
             key={i}
             className="bg-zinc-900 hover:bg-zinc-800 transition-all duration-300 rounded-lg p-6 flex items-start gap-4 shadow-lg hover:scale-[1.02]"
           >
-            <img src={feature.icon} alt={feature.title} className="w-14 h-14 object-contain" />
+            <Image
+              src={feature.icon}
+              alt={feature.title}
+              width={56}
+              height={56}
+              className="object-contain"
+              unoptimized
+            />
             <div>
               <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
               <p className="text-gray-300 text-sm">{feature.text}</p>

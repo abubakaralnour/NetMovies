@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TrandMobile() {
   const [Trend, setTrend] = useState([]);
@@ -22,13 +23,13 @@ export default function TrandMobile() {
         const data = await res.json();
         setTrend(data.results);
       } catch (error) {
-        console.error("cant fetch data");
+        console.error("can't fetch data");
       }
     }
     getTrend();
   }, []);
 
-  // Handle click outside to close modal
+  // Close modal when clicking outside
   useEffect(() => {
     const handler = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -67,61 +68,65 @@ export default function TrandMobile() {
               className="cursor-pointer transition-transform duration-300 transform hover:scale-105"
               style={{ width: "140px" }}
             >
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
+                alt={movie.title?.replace(/"/g, "&quot;")}
+                width={300}
+                height={400}
                 className="rounded-md w-full"
+                unoptimized
               />
-              <h4 className="text-sm mt-2 text-center">{movie.title}</h4>
+              <h4 className="text-sm mt-2 text-center">
+                {movie.title?.replace(/"/g, "&quot;")}
+              </h4>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-{selectedMovie && (
-  <>
-    {/* Overlay background */}
-     <div className="fixed inset-0  bg-opacity-30 backdrop-blur-sm z-40" />
- 
 
-    {/* Centered Modal Container */}
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div
-        ref={modalRef}
-        className="text-amber-50  bg-radial-[at_50%_50%] from-red-950 to-zinc-900 to-75%  rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden"
-      >
-        {/* Image at the top */}
-              <button
-              onClick={() => setSelectedMovie(null)}
-              className="text-gray-500 hover:text-red-500 text-2xl font-bold absolute right-5 "
+      {selectedMovie && (
+        <>
+          <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm z-40" />
+
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div
+              ref={modalRef}
+              className="text-amber-50 bg-radial-[at_50%_50%] from-red-950 to-zinc-900 to-75% 
+              rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden"
             >
-              ×
-            </button>
-        <img
-          src={`https://image.tmdb.org/t/p/w780${selectedMovie.poster_path}`}
-          alt={selectedMovie.title}
-          className="w-full object-cover h-64 sm:h-72 md:h-80"
-        />
-
-        {/* Content below image */}
-        <div className="p-4 sm:p-6 text-amber-50">
-          <div className="flex justify-between items-center mb-4">
-           
-
-            <h3 className="text-xl sm:text-2xl font-bold">{selectedMovie.title}</h3>
-      
+              <button
+                onClick={() => setSelectedMovie(null)}
+                className="text-gray-500 hover:text-red-500 text-2xl font-bold absolute right-5"
+              >
+                ×
+              </button>
+              <Image
+                src={`https://image.tmdb.org/t/p/w780${selectedMovie.poster_path}`}
+                alt={selectedMovie.title?.replace(/"/g, "&quot;")}
+                width={780}
+                height={450}
+                className="w-full object-cover h-64 sm:h-72 md:h-80"
+                unoptimized
+              />
+              <div className="p-4 sm:p-6 text-amber-50">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold">
+                    {selectedMovie.title?.replace(/"/g, "&quot;")}
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base mb-4">
+                  {selectedMovie.overview}
+                </p>
+                <Link href="/component/payment">
+                  <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md">
+                    Get Started
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
-          <p className=" text-sm sm:text-base  mb-4">
-            {selectedMovie.overview}
-          </p>
-         <Link href="/component/payment"> <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md">
-             Get Started 
-          </button></Link>
-        </div>
-      </div>
-    </div>
-  </>
-)}
-
+        </>
+      )}
     </div>
   );
 }

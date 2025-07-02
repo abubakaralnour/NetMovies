@@ -62,25 +62,27 @@ export default function TrandMobile() {
         }}
       >
         {Trend.slice(15, 21).map((movie) => (
-          <SwiperSlide key={movie.id}>
-            <div
-              onClick={() => setSelectedMovie(movie)}
-              className="cursor-pointer transition-transform duration-300 transform hover:scale-105"
-              style={{ width: "140px" }}
-            >
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title?.replace(/"/g, "&quot;")}
-                width={300}
-                height={400}
-                className="rounded-md w-full"
-                unoptimized
-              />
-              <h4 className="text-sm mt-2 text-center">
-                {movie.title?.replace(/"/g, "&quot;")}
-              </h4>
-            </div>
-          </SwiperSlide>
+     <SwiperSlide key={movie.id}>
+  <div
+    onClick={() => setSelectedMovie(movie)}
+    className="cursor-pointer transition-transform duration-300 transform hover:scale-105"
+    style={{ width: "140px" }}
+  >
+    <div className="relative w-full aspect-[3/4] rounded-md overflow-hidden">
+      <Image
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
+        fill
+        className="object-cover"
+        unoptimized
+      />
+    </div>
+    <h4 className="text-sm mt-2 text-center">
+      {movie.title?.replace(/"/g, "&quot;")}
+    </h4>
+  </div>
+</SwiperSlide>
+
         ))}
       </Swiper>
 

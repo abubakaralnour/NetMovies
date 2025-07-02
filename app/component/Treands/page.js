@@ -22,27 +22,33 @@ const Treands = () => {
   }, []);
 
   return (
-    <div style={{ padding: "2rem",backgroundColor:"black" }}>
+    <div className="p-4 bg-black min-h-screen">
       <h1 className="text-3xl sm:text-4xl font-bold text-center text-red-600 mb-10">
         Trending Movies
       </h1>
-      <div className="flex flex-wrap gap-4 justify-center">
+
+      <div className="flex flex-wrap justify-center gap-4">
         {movies.length > 0 ? (
           movies.map((movie) => (
-            <div key={movie.id} style={{ width: "200px" }}>
+            <div
+              key={movie.id}
+              className="w-[45vw] sm:w-[30vw] md:w-[18vw] lg:w-[14vw] xl:w-[12vw] max-w-xs"
+            >
               <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
-                width={200}
-                height={300}
-                className="rounded-xl"
+                width={500}
+                height={750}
+                className="rounded-xl object-cover"
                 unoptimized
               />
-              <h4>{movie.title?.replace(/"/g, "&quot;")}</h4>
+              <h4 className="mt-2 text-white text-center text-sm sm:text-base truncate">
+                {movie.title?.replace(/"/g, "&quot;")}
+              </h4>
             </div>
           ))
         ) : (
-          <p>Error fetching movies</p>
+          <p className="text-white">Error fetching movies</p>
         )}
       </div>
     </div>

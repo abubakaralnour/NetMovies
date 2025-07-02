@@ -70,7 +70,7 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
               <p className="text-sm mt-2  p-2">{matched.overview}</p>
               <div className="text-center">
                <Link href="/component/payment"> <button className="  mb-3  bg-red-600 text-white px-3 py-3 w-1/2 cursor-pointer rounded-md hover:bg-red-700 transition font-semibold">
-                 Get Started →
+                 Get Started &rarr;
                 </button></Link> 
               </div>
             </div>

@@ -2,37 +2,34 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
+// Helper to escape quotes
+const escapeQuotes = (str) => str?.replace(/"/g, '\u201C');
+
 // Overlay Modal Component
 const OverlayModal = ({ onClose, Trend, selectmove }) => {
   const modalRef = useRef(null);
   const [matched, setMatched] = useState(null);
 
-  // Match selected movie with trending list
   useEffect(() => {
     if (!selectmove || !Trend.length) return;
-
     const found = Trend.find((item) => item.id === selectmove.id);
     if (found) {
       setMatched(found);
-      
     }
   }, [selectmove, Trend]);
 
-  // Close modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         onClose();
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
 
-  // Prevent background scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -42,14 +39,13 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
 
   return (
     <>
-      <div className="overlay-larg fixed inset-0  bg-opacity-60 z-40" />
+      <div className="overlay-larg fixed inset-0 bg-opacity-60 z-40" />
       <div className="container-larg-ads fixed inset-0 z-50 flex justify-center items-center">
         <div
           ref={modalRef}
-          className="text-amber-50        bg-radial-[at_50%_50%] from-red-950 to-zinc-900 to-75% 
+          className="text-amber-50 bg-radial-[at_50%_50%] from-red-950 to-zinc-900 to-75% 
         rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden"
         >
-           
           <button
             onClick={onClose}
             className="absolute top-2 right-2 text-gray-800 text-2xl"
@@ -61,17 +57,16 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
               <img
                 src={`https://image.tmdb.org/t/p/w500${matched.poster_path}`}
                 alt={matched.title}
-                className=" w-full object-cover h-64 sm:h-72 md:h-80"
+                className="w-full object-cover h-64 sm:h-72 md:h-80"
               />
-
-
-
-              <h4 className="text-xl font-bold mt-4 p-2">{matched.title}</h4>
-              <p className="text-sm mt-2  p-2">{matched.overview}</p>
+              <h4 className="text-xl font-bold mt-4 p-2">{escapeQuotes(matched.title)}</h4>
+              <p className="text-sm mt-2 p-2">{matched.overview}</p>
               <div className="text-center">
-               <Link href="/component/payment"> <button className="  mb-3  bg-red-600 text-white px-3 py-3 w-1/2 cursor-pointer rounded-md hover:bg-red-700 transition font-semibold">
-                 Get Started 
-                </button></Link> 
+                <Link href="/component/payment">
+                  <button className="mb-3 bg-red-600 text-white px-3 py-3 w-1/2 cursor-pointer rounded-md hover:bg-red-700 transition font-semibold">
+                    Get Started
+                  </button>
+                </Link>
               </div>
             </div>
           )}
@@ -95,7 +90,7 @@ const Trand = () => {
         const data = await res.json();
         setTrend(data.results);
       } catch (error) {
-        console.error("can t fetch data");
+        console.error("can't fetch data");
       }
     }
 
@@ -125,7 +120,7 @@ const Trand = () => {
               alt={movie.title}
               className="w-full h-64 object-cover rounded-lg"
             />
-            <h4 className="text-white mt-2 text-center">{movie.title}</h4>
+            <h4 className="text-white mt-2 text-center">{escapeQuotes(movie.title)}</h4>
           </div>
         ))}
       </div>

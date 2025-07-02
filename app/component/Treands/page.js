@@ -31,13 +31,13 @@ const Treands = () => {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-2 flex flex-col items-center"
+            className="w-1/3 sm:w-1/4 md:w-1/4 lg:w-1/6 p-2 flex flex-col items-center"
           >
             <Image
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title?.replace(/"/g, "&quot;") || "Movie poster"}
-              width={160} // Good size for mobile
-              height={240} // Maintain 2:3 aspect ratio
+              width={120} // Good size for mobile
+              height={200} // Maintain 2:3 aspect ratio
               className="rounded-md object-cover"
               unoptimized
             />

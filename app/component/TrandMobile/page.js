@@ -46,7 +46,7 @@ export default function TrandMobile() {
 
   return (
     <div className="w-full px-4 py-8 text-white">
-      <h2 className="text-2xl font-bold mb-4 text-amber-400">Trending Now</h2>
+      <h2 className="text-2xl font-bold mb-4 text-amber-400"><Link href="/component/Treands">Trending Now</Link></h2>
 
       <Swiper
         slidesPerView={2}

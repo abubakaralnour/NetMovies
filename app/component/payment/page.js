@@ -8,25 +8,6 @@ import Head from 'next/head';
 export default function NetflixPaymentOptions() {
   return (
     <div className="bg-white">
-          <>
-      <Head>
-        <script src="https://cdn.moyasar.com/mpf/1.10.1/moyasar.js" />
-      </Head>
-
-      <div className="p-10">
-        <h1 className="text-2xl font-bold mb-6 text-white">Pay with Moyasar</h1>
-
-        <div
-          className="mysr-form"
-          data-amount="1000"
-          data-currency="SAR"
-          data-description="Test Payment"
-          data-publishable-api-key="pk_test_6yk3higCYiux7vj2EBWxEEe4DSdiwt7yGPfYS1Q4" // Replace with yours
-          data-callback-url="https://yourdomain.com/payment-success"
-          data-methods="creditcard,applepay,mada"
-        ></div>
-      </div>
-    </>
       <div className="flex justify-between p-4 ">
         <div className="w-full text-left">
           <h1 className="text-4xl font-bold text-[#e50914]">

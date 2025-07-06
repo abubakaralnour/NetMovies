@@ -7,7 +7,7 @@ const LoginMobile = () => {
 
   return (
     <div className="bg-black min-h-screen w-full flex items-center justify-center px-4 flex-col">
-       <div className="w-full text-left">
+       <div className="w-full text-left z-60">
           <h1 className="text-3xl font-bold text-[#e50914]">
             <Link href="/"> NETMOVIES</Link>
           </h1>

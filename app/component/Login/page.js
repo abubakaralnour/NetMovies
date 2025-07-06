@@ -92,7 +92,7 @@ const Login = () => {
             {/* Collapse Section */}
             <div className="mt-4 text-xs text-center px-4">
            <p>
-  This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}<br/>
+  This page is protected by Google reCAPTCHA to ensure youre not a bot.{" "}<br/>
   {!isOpen && (
     <span
       onClick={() => setIsOpen(true)}

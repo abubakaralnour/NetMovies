@@ -6,7 +6,7 @@ const LoginMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-black min-h-screen w-full flex  justify-center px-4 flex-col">
+<div className="bg-black min-h-screen w-full px-4 pt-8">
        <div className="w-full text-left ">
           <h1 className="text-3xl font-bold text-[#e50914]">
             <Link href="/"> NETMOVIES</Link>

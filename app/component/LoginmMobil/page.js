@@ -13,7 +13,7 @@ const LoginMobile = () => {
           </h1>
         </div>
       <div className="w-full max-w-sm bg-black text-amber-50 rounded-lg shadow-lg p-6 pt-6 space-y-2">
-        <h4 className="text-2xl font-bold text-center">Sign in</h4>
+        <h4 className="text-2xl font-bold pb-8">Sign in</h4>
 
         {/* Email Field */}
         <input

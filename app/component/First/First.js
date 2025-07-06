@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function First() {
   return (
@@ -21,11 +22,11 @@ export default function First() {
       {/* Header */}
       <div className="relative z-10 flex justify-between items-center px-4 sm:px-6 md:px-10 pt-4 sm:pt-6">
         <h3 className="text-xl sm:text-2xl font-bold text-red-600">NETMOVIES</h3>
-        <div className="flex items-center gap-2">
-          <button className="bg-red-600 text-white px-3 py-1 text-sm sm:text-base rounded-md hover:bg-red-700 transition">
+        <div className="flex items-center gap-2 ">
+         <Link href="/component/RootLogin"> <button className=" cursor-pointer   bg-red-600 text-white px-3 py-1 text-sm sm:text-base rounded-md hover:bg-red-700 transition">
             Sign in
           </button>
-
+</Link>
           <div className="flex items-center gap-1 border border-gray-500 px-2 py-1 rounded">
             <Image
               src="https://img.icons8.com/?size=30&id=12455&format=png&color=faf7f7"

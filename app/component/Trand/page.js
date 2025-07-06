@@ -41,7 +41,7 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
         <div
           ref={modalRef}
           className="text-amber-50 bg-radial-[at_50%_50%] from-red-950 to-zinc-900 to-75% 
-        rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden"
+          rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden"
         >
           <button
             onClick={onClose}
@@ -80,6 +80,7 @@ const OverlayModal = ({ onClose, Trend, selectmove }) => {
 
 const Trand = () => {
   const [showOverlay, setShowOverlay] = useState(false);
+  const [massge, setmassge] = useState("");
   const [Trend, setTrend] = useState([]);
   const [selectmove, setSelectMove] = useState(null);
 
@@ -92,7 +93,7 @@ const Trand = () => {
         const data = await res.json();
         setTrend(data.results);
       } catch (error) {
-        console.error("can't fetch data");
+        setmassge("Fetching Movies failed. Review your internet connection.");
       }
     }
 
@@ -107,30 +108,34 @@ const Trand = () => {
         </Link>
       </h1>
 
-      <div className="flex flex-wrap gap-6 justify-center">
-        {Trend.slice(15, 21).map((movie) => (
-          <div
-            key={movie.id}
-            className="cardSwiper w-48 cursor-pointer transform hover:scale-105 transition"
-            onClick={() => {
-              setSelectMove(movie);
-              setShowOverlay(true);
-            }}
-          >
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              width={300}
-              height={400}
-              className="w-full h-64 object-cover rounded-lg"
-              unoptimized
-            />
-            <h4 className="text-white mt-2 text-center">
-              {movie.title?.replace(/"/g, "&quot;")}
-            </h4>
-          </div>
-        ))}
-      </div>
+      {Trend.length > 0 ? (
+        <div className="flex flex-wrap gap-6 justify-center">
+          {Trend.slice(15, 21).map((movie) => (
+            <div
+              key={movie.id}
+              className="cardSwiper w-48 cursor-pointer transform hover:scale-105 transition"
+              onClick={() => {
+                setSelectMove(movie);
+                setShowOverlay(true);
+              }}
+            >
+              <Image
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                width={300}
+                height={400}
+                className="w-full h-64 object-cover rounded-lg"
+                unoptimized
+              />
+              <h4 className="text-white mt-2 text-center">
+                {movie.title?.replace(/"/g, "&quot;")}
+              </h4>
+            </div>
+          ))}
+        </div>
+      ) : (
+        massge && <p className="text-red-400 text-center mt-4">{massge}</p>
+      )}
 
       {showOverlay && (
         <OverlayModal

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -7,7 +8,10 @@ const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+  
     <div>
+        
+      
       {/* Background Image */}
     {/* Background Image (hidden on small screens) */}
 <div className="absolute inset-0 h-full hidden md:block ">
@@ -25,9 +29,15 @@ const Login = () => {
 
       {/* Overlay */}
       <div className="overlay-larg fixed inset-0 bg-opacity-60 z-40 " />
-
+    
       {/* Login Container */}
-      <div className="container-larg-ads fixed inset-0 z-50 flex justify-center p-8">
+         <div className="p-6 absolute z-60">   
+        
+       <Link href="/">   <h1 className="text-2xl font-bold text-[#e50914]">    NETMOVIES  </h1></Link>
+        
+          </div>
+      <div className="container-larg-ads fixed inset-0 z-50 flex justify-center p-8 pt-20">
+  
         <div className="p-8 text-amber-50 bg-black opacity-80  rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl overflow-hidden">
           <h4 className="text-xl font-bold  p-2">Sign in</h4>
 

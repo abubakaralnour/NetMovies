@@ -1,12 +1,17 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 
 const LoginMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-black min-h-screen w-full flex items-center justify-center px-4">
+    <div className="bg-black min-h-screen w-full flex items-center justify-center px-4 flex-col">
+       <div className="w-full text-left">
+          <h1 className="text-3xl font-bold text-[#e50914]">
+            <Link href="/"> NETMOVIES</Link>
+          </h1>
+        </div>
       <div className="w-full max-w-sm bg-black text-amber-50 rounded-lg shadow-lg p-6 space-y-4">
         <h4 className="text-2xl font-bold text-center">Sign in</h4>
 

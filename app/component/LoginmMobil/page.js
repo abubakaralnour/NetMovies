@@ -1,20 +1,42 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // ✅ useRouter instead of useNavigate
 import { useState } from "react";
 
 const LoginMobile = () => {
+  const router = useRouter(); // ✅ correct hook
+
+  const [message, setMessage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [User, setUser] = useState({
     email: "",
-    passwod: "",
-    remmber: false,
+    password: "",
+    remember: false,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted User:", User);
-    // TODO: handle login logic
+
+    const storedUsers = JSON.parse(localStorage.getItem("formdata")) || [];
+    const usersArray = Array.isArray(storedUsers) ? storedUsers : [storedUsers];
+
+    const foundUser = usersArray.find(
+      (user) =>
+        user.email === User.email &&
+        user.password === User.password
+    );
+
+    if (foundUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+      setMessage({ type: "success", text: "Login successful" });
+
+      setTimeout(() => {
+        router.push("/"); // ✅ Redirect to profile page
+      }, 1000);
+    } else {
+      setMessage({ type: "error", text: "Email or password incorrect" });
+    }
   };
 
   const handleChange = (e) => {
@@ -27,6 +49,16 @@ const LoginMobile = () => {
 
   return (
     <div className="bg-black min-h-screen w-full px-4 pt-8 text-amber-50">
+      {message && (
+        <div
+          className={`fixed top-5 right-5 z-50 px-4 py-3 rounded shadow-md transition-all duration-300 ${
+            message.type === "success" ? "bg-green-500" : "bg-red-500"
+          } text-white`}
+        >
+          {message.text}
+        </div>
+      )}
+
       <div className="w-full text-left mb-6">
         <h1 className="text-3xl font-bold text-[#e50914]">
           <Link href="/">NETMOVIES</Link>
@@ -37,7 +69,6 @@ const LoginMobile = () => {
         <h4 className="text-2xl font-bold pb-4 text-center">Sign in</h4>
 
         <form onSubmit={handleSubmit}>
-          {/* Email Field */}
           <input
             name="email"
             value={User.email}
@@ -47,17 +78,15 @@ const LoginMobile = () => {
             placeholder="Email or mobile password"
           />
 
-          {/* Password Field */}
           <input
-            name="passwod"
-            value={User.passwod}
+            name="password"
+            value={User.password}
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-md border border-amber-50 bg-transparent placeholder:text-sm mb-2"
             type="password"
             placeholder="Password"
           />
 
-          {/* Sign In Button */}
           <button
             type="submit"
             className="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition font-semibold"
@@ -67,23 +96,17 @@ const LoginMobile = () => {
 
           <div className="text-center text-sm py-1">OR</div>
 
-          {/* Sign In Code Button */}
-
-          {/* Sign Up */}
-
           <Link href="/component/Register">
-            {" "}
             <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm mt-2">
               New to Netflix? Sign up now.
             </p>
           </Link>
 
-          {/* Remember Me Checkbox */}
-          <label className="flex items-center space-x-3 text-sm text-white">
+          <label className="flex items-center space-x-3 text-sm text-white mt-2">
             <input
               type="checkbox"
-              name="remmber"
-              checked={User.remmber}
+              name="remember"
+              checked={User.remember}
               onChange={handleChange}
               className="peer hidden"
             />
@@ -105,12 +128,10 @@ const LoginMobile = () => {
             <span>Remember me</span>
           </label>
 
-          {/* Forgot Password */}
-          <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm">
+          <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm mt-2">
             Forgot Password?
           </p>
 
-          {/* Collapse Section */}
           <div className="mt-4 text-xs text-center">
             <p>
               This page is protected by Google reCAPTCHA to ensure youre not a

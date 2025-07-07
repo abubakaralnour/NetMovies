@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+ const router = useRouter();
   const [message, setMessage] = useState(null);
   const [formData, setFormData] = useState({
     firstname: "",
@@ -42,14 +44,23 @@ const Register = () => {
         password: "",
         phone: "",
       });
-      setMessage({ type: "success", text: "Registered successfully!" });
+
     }
 
-    setTimeout(() => {
-      setMessage(null);
-    }, 3000);
+setMessage({ type: "success", text: "Registered successfully!" });
+localStorage.setItem("loggedInUser", JSON.stringify(formData)); // ✅ Add this
+
+setTimeout(() => {
+  setMessage(null);
+  router.push("/");
+}, 2000);
   };
 
+
+
+
+
+  
   return (
     <>
       {/* Notification Message */}

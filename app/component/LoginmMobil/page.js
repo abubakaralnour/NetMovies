@@ -115,7 +115,7 @@ const LoginMobile = () => {
           {/* Collapse Section */}
           <div className="mt-4 text-xs text-center">
             <p>
-              This page is protected by Google reCAPTCHA to ensure you're not a
+              This page is protected by Google reCAPTCHA to ensure youre not a
               bot.
               {!isOpen && (
                 <span

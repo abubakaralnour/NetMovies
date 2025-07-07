@@ -65,7 +65,7 @@ const Login = () => {
 
             {/* Sign In Code Button */}
             <button className="mb-3 bg-neutral-600 text-white px-3 py-3 w-1/2 cursor-pointer rounded-md hover:bg-neutral-700 transition font-semibold">
-           <Link href="/component/Register"> Don't have an account? Sign up</Link> 
+           <Link href="/component/Register"> Dont have an account? Sign up</Link> 
             </button>
 
             {/* Forgot Password */}

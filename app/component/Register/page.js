@@ -99,7 +99,7 @@ const Register = () => {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="mx-auto max-w-xl bg-[#111] p-6 rounded-xl shadow-lg backdrop-blur-md"
+            className="mx-auto max-w-xl bg-black p-6 rounded-xl shadow-lg backdrop-blur-md"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>

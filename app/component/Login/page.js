@@ -63,16 +63,12 @@ const Login = () => {
 
             <span>OR</span>
 
-            {/* Sign In Code Button */}
-            <button className="mb-3 bg-neutral-600 text-white px-3 py-3 w-1/2 cursor-pointer rounded-md hover:bg-neutral-700 transition font-semibold">
-           <Link href="/component/Register"> Dont have an account? Sign up</Link> 
-            </button>
+           {/* Sign up */}
+       <Link href="/component/Register">     <p className="underline hover:text-neutral-300 cursor-pointer">
+            New to Netmovies? Sign up now.
+            </p> </Link> 
 
-            {/* Forgot Password */}
-            <p className="underline hover:text-neutral-300 cursor-pointer">
-              Forgot Password?
-            </p>
-
+           
             {/* Remember Me Checkbox */}
             <label className="flex items-center space-x-3 mb-4 mt-2 text-sm text-white">
               <input type="checkbox" id="remember" className="peer hidden" />
@@ -94,10 +90,11 @@ const Login = () => {
               <span>Remember me</span>
             </label>
 
-            {/* Sign up */}
+        {/* Forgot Password */}
             <p className="underline hover:text-neutral-300 cursor-pointer">
-              New to Netflix? Sign up now.
+              Forgot Password?
             </p>
+
 
             {/* Collapse Section */}
             <div className="mt-4 text-xs text-center px-4">

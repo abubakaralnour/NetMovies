@@ -68,17 +68,15 @@ const LoginMobile = () => {
           <div className="text-center text-sm py-1">OR</div>
 
           {/* Sign In Code Button */}
-          <button
-            type="button"
-            className="w-full bg-neutral-600 text-white py-3 rounded-md hover:bg-neutral-700 transition font-semibold"
-          >
-            Use sign-in code
-          </button>
 
-          {/* Forgot Password */}
-          <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm">
-            Forgot Password?
-          </p>
+          {/* Sign Up */}
+
+          <Link href="/component/Register">
+            {" "}
+            <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm mt-2">
+              New to Netflix? Sign up now.
+            </p>
+          </Link>
 
           {/* Remember Me Checkbox */}
           <label className="flex items-center space-x-3 text-sm text-white">
@@ -107,9 +105,9 @@ const LoginMobile = () => {
             <span>Remember me</span>
           </label>
 
-          {/* Sign Up */}
-          <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm mt-2">
-            New to Netflix? Sign up now.
+          {/* Forgot Password */}
+          <p className="text-center underline hover:text-neutral-300 cursor-pointer text-sm">
+            Forgot Password?
           </p>
 
           {/* Collapse Section */}

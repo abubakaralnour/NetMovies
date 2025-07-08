@@ -18,7 +18,7 @@ const Profile = () => {
     <div className="text-white flex flex-col items-center justify-center mt-2">
       {/* Profile Circle with Hover Group */}
       <div className="relative group">
-        <div className="cursor-pointer bg-amber-400 text-red-800 rounded-full flex items-center justify-center w-15 h-15 transition hover:scale-105 duration-200">
+        <div className="cursor-pointer bg-black text-white rounded-full flex items-center justify-center w-15 h-15 transition hover:scale-105 duration-200">
           <h1 className="text-3xl font-bold">{firstChar}</h1>
         </div>
 

@@ -1,10 +1,36 @@
 "use client";
-
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Profile from "../Profile/page";
 
 export default function First() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+useEffect(() => {
+  const checkLogin = () => {
+    const user = localStorage.getItem("loggedInUser");
+    setIsLoggedIn(!!user); // true if exists
+  };
+
+  checkLogin(); // run once on component mount
+
+  window.addEventListener("storage", checkLogin); // listen to login/logout changes
+
+  return () => {
+    window.removeEventListener("storage", checkLogin); // cleanup on unmount
+  };
+}, []);
+
+const handleLogout = () => {
+  localStorage.removeItem("loggedInUser");
+  window.dispatchEvent(new Event("storage")); // Optional: sync across tabs
+  setIsLoggedIn(false); // ✅ This will change the button back to "Sign in"
+};
+
+ 
+
+
+
   return (
     <div className="relative w-full text-white overflow-hidden pb-16 sm:pb-20">
       {/* Background image */}
@@ -27,12 +53,18 @@ export default function First() {
           NETMOVIES
         </h3>
         <div className="flex items-center gap-2 ">
-          <Link href="/component/RootLogin">
+             {isLoggedIn ? (
+         
+            
+            <button onClick={handleLogout}  className=" cursor-pointer   bg-red-600 text-white px-3 py-1 text-sm sm:text-base rounded-md hover:bg-red-700 transition">
+              Sign out
+            </button>
+           ) : (  <Link href="/component/RootLogin">
             {" "}
             <button className=" cursor-pointer   bg-red-600 text-white px-3 py-1 text-sm sm:text-base rounded-md hover:bg-red-700 transition">
               Sign in
             </button>
-          </Link>
+          </Link> )}
           <div className="flex items-center gap-1 border border-gray-500 px-2 py-1 rounded">
             <Image
               src="https://img.icons8.com/?size=30&id=12455&format=png&color=faf7f7"

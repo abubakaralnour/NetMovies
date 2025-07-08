@@ -38,10 +38,13 @@ const Login = () => {
 
     if (foundUser) {
       localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+window.dispatchEvent(new Event("storage")); // 👈 trigger event manually
+
       setMessage({ type: "success", text: "Login successful" });
 
       setTimeout(() => {
         router.push("/");
+
       }, 1000);
     } else {
       setMessage({ type: "error", text: "Email or password incorrect" });

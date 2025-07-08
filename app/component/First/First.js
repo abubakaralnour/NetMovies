@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Profile from "../Profile/page";
 
 export default function First() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,7 +47,7 @@ const handleLogout = () => {
 
       {/* Header */}
       <div className="relative z-10 flex justify-between items-center px-4 sm:px-6 md:px-10 pt-4 sm:pt-6">
-        <Profile/>
+       
         <h3 className="text-xl sm:text-2xl font-bold text-red-600">
           NETMOVIES
         </h3>

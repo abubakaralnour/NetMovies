@@ -61,7 +61,7 @@ export default function TrandMobile() {
           768: { slidesPerView: 4 },
         }}
       >
-        {Trend.slice(15, 21).map((movie) => (
+        {Trend.slice(13, 21).map((movie) => (
      <SwiperSlide key={movie.id}>
   <div
     onClick={() => setSelectedMovie(movie)}

@@ -8,7 +8,7 @@ import { useState } from "react";
 const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-
+const [myname, setMyname] = useState("")
   const [message, setMessage] = useState(null);
   const [User, setUser] = useState({
     email: "",
@@ -33,14 +33,15 @@ const Login = () => {
     const foundUser = usersArray.find(
       (user) =>
         user.email === User.email &&
-        user.password === User.password
+        user.password === User.password 
+       
     );
 
     if (foundUser) {
       localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
 window.dispatchEvent(new Event("storage")); // 👈 trigger event manually
-
-      setMessage({ type: "success", text: "Login successful" });
+ setMyname(foundUser.firstname)
+    setMessage({ type: "success", text: `Welcome ${foundUser.firstname}!` });
 
       setTimeout(() => {
         router.push("/");
